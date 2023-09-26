@@ -120,3 +120,102 @@ altkume = {"Fenerbahçe", "Galatasaray"}
 # print(altkume.intersection(ustkume))
 
 # symmetric_difference - örneklendirme 
+
+a = {1,2,3,4}
+b = {1,3,5,7,9}
+
+sonuc = a.symmetric_difference(b)
+
+# print(sonuc)
+
+# dict 
+
+bilgiler = {"adet": 1} # key: value / anahtar: değer
+
+bilgiler["adet"] = 2
+
+# print(bilgiler, bilgiler["adet"])
+
+bilgiler = dict(adet=1, yas=20, ogrenci_mi=True)
+# {'adet': 1, 'yas': 20, 'ogrenci_mi': True}
+
+# dict sınıfı key ve value ile değer alır
+# dict sınıfına işaret eder
+# dict sınıfı iterable bir türdür fakat kendi özel fonksiyonlarıyla gezilebilir hale gelir
+
+adet, yas, ogrenci_mi = bilgiler.items() 
+# sozluk yapısını doner [(key, value), (key, value), (key, value)]
+
+bilgiler.keys() # anahtarları döndürür [key, key, key]
+bilgiler.values() # değerleri döndürür [value, value, value]
+
+key, value = adet
+
+# print("key='%s', value=%s" % (key, value))
+
+c = {
+    "path": "/",
+    "sleep": 5,
+    "config_file": "./config.json"
+}
+
+config = c.copy() # sözlüğü kopyalar
+
+config.pop("sleep") # sleep keyine sahip değeri siler
+config.popitem() # son ekleneni siler
+config.clear()
+
+
+c.get("sleep") # bulabilirse değeri döner, bulamazsa None 
+c.get("path")
+
+# dict.get default value
+c.pop("sleep")
+# print(c.get("sleep")) # None
+# print(c.get("sleep", 5)) # 5
+
+# c[key]
+c.get(key) # daha güvenilir, hatanın önüne geçmek için
+
+# c.update({"path2": "./worker/main.py"})
+# print(c)
+
+# c.setdefault("sleep", 5)
+
+# print(c["sleep"] == c.get("sleep")) # c.get('sleep', 5)
+
+# print(c.fromkeys(["data", "table", "dir"], None))
+# istenen anhtar kelimeler ve varsayılan değerle yeni sözlük oluşturma
+
+tumu = list(c.items())
+
+# iterator ve generator
+
+### iterator
+
+liste = [1,2,3,4]
+
+liste = iter(liste)
+
+# print(liste.__next__())
+# print(liste.__next__())
+# print(liste.__next__())
+# print(liste.__next__())
+
+# print(next(liste)) # 1
+# print(next(liste)) # 2
+# print(next(liste)) # 3
+# print(next(liste)) # 4
+
+# generator
+
+# yield keyword, yielding
+
+def foo():
+     yield 1
+
+a = (foo())
+
+i = iter(a)
+
+# print(i, next(i))
